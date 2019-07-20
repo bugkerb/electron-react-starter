@@ -1,5 +1,5 @@
 {
-  "name": "majorcms-coach",
+  "name": "app-starter",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -8,7 +8,7 @@
   },
   "build": {
     "appId": "com.electron.majorcms-coach",
-    "productName": "Major CMS Coach",
+    "productName": "App Starter",
     "copyright": "Copyright © 2019 ${author}",
     "win": {
       "target": [
@@ -26,10 +26,13 @@
     }
   },
   "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "data-table": "^2.0.0",
     "electron-is-dev": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "serialport": "^7.1.5"
   },
   "homepage": "./",
   "main": "public/electron.js",
@@ -39,7 +42,7 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "postinstall": "electron-builder install-app-deps",
+    "postinstall": "electron-builder install-app-deps && ./node_modules/.bin/electron-rebuild",
     "prepack": "yarn build",
     "pack": "build -w"
   },
@@ -64,10 +67,13 @@
   "devDependencies": {
     "@rescripts/cli": "^0.0.11",
     "@rescripts/rescript-env": "^0.0.10",
+    "babel-preset-react-app": "^9.0.0",
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
     "electron": "^5.0.6",
     "electron-builder": "^20.44.4",
+    "electron-rebuild": "^1.8.5",
+    "rollup-plugin-replace": "^2.2.0",
     "typescript": "^3.5.2",
     "wait-on": "^3.2.0"
   }
